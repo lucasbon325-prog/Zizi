@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Creator Boost 🎮</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0b0d12;
+  color: white;
+  line-height: 1.6;
+}
+
+header {
+  padding: 22px;
+  background: #141821;
+  text-align: center;
+  border-bottom: 2px solid #b7ff39;
+}
+
+header span { color: #b7ff39; }
+
+main {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+h1, h2 { line-height: 1.2; }
+
+h1 { font-size: 38px; }
+h1 span { color: #b7ff39; }
+
+p { color: #b7bccc; }
+
+.card {
+  background: #141821;
+  border: 1px solid #2b3242;
+  padding: 20px;
+  border-radius: 16px;
+  margin: 15px 0;
+}
+
+button {
+  background: #b7ff39;
+  color: #111;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 5px 0;
+}
+
+button:hover { opacity: 0.85; }
+
+.lesson {
+  display: none;
+  background: #1b2130;
+  padding: 18px;
+  border-radius: 12px;
+  margin-top: 15px;
+}
+
+.lesson.active { display: block; }
+
+input[type="checkbox"] {
+  accent-color: #b7ff39;
+  margin-right: 10px;
+}
+
+.progress {
+  height: 10px;
+  background: #2b3242;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+#bar {
+  height: 100%;
+  width: 0;
+  background: #b7ff39;
+  transition: width 0.3s;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  color: #b7bccc;
+}
+
+@media (max-width: 600px) {
+  h1 { font-size: 30px; }
+  main { padding: 15px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h2>CREATOR<span>BOOST</span> 🎮</h2>
+  <p>Apprend a créer de bonnes vidéos gaming sur mobile !</p>
+</header>
+
+<main>
+  <h1>Transforme tes parties en <span>bonnes vidéos</span></h1>
+  <p>Apprend a filmer, monter et publier tes vidéos YouTube directement sur ton téléphone.</p>
+
+  <div class="card">
+    <h2>🎥 1. Enregistrer ton gameplay</h2>
+    <p>Utilise l'enregistreur d'écran de ton téléphone.</p>
+    <button onclick="showLesson('record')">Apprendre</button>
+    <div class="lesson" id="record">
+      <ol>
+        <li>Active l'enregistrement d'écran.</li>
+        <li>Choisis une qualité adaptée a ton téléphone.</li>
+        <li>Teste le son du jeu et ton micro.</li>
+        <li>Ferme les applications inutiles.</li>
+        <li>Fais un test avant une longue partie.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>✂️ 2. Monter avec CapCut</h2>
+    <p>Apprend a faire des montages dynamiques.</p>
+    <button onclick="showLesson('edit')">Apprendre</button>
+    <div class="lesson" id="edit">
+      <ol>
+        <li>Importe ta vidéo dans CapCut.</li>
+        <li>Coupe les moments inutiles.</li>
+        <li>Ajoute des zooms aux moments importants.</li>
+        <li>Ajoute des sous-titres si tu parles.</li>
+        <li>Vérifie le résultat avant l'export.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>🎙️ 3. Améliorer le son</h2>
+    <button onclick="showLesson('audio')">Apprendre</button>
+    <div class="lesson" id="audio">
+      <ol>
+        <li>Enregistre dans un endroit calme.</li>
+        <li>Évite de mettre la musique trop forte.</li>
+        <li>Vérifie que ta voix reste compréhensible.</li>
+        <li>Écoute la vidéo avec des écouteurs.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>🖼️ 4. Créer une miniature</h2>
+    <button onclick="showLesson('thumb')">Apprendre</button>
+    <div class="lesson" id="thumb">
+      <ol>
+        <li>Choisis une image nette de ton jeu.</li>
+        <li>Utilise un titre court et lisible.</li>
+        <li>Fais ressortir le sujet principal.</li>
+        <li>Vérifie que la miniature reste lisible sur mobile.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>⚡ 5. Créer un YouTube Short</h2>
+    <button onclick="showLesson('shorts')">Apprendre</button>
+    <div class="lesson" id="shorts">
+      <ol>
+        <li>Choisis un moment intéressant de ta partie.</li>
+        <li>Commence directement par l'action.</li>
+        <li>Utilise le format vertical 9:16.</li>
+        <li>Coupe les temps morts.</li>
+        <li>Termine sans une longue introduction.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>🚀 6. Publier sur YouTube</h2>
+    <button onclick="showLesson('publish')">Apprendre</button>
+    <div class="lesson" id="publish">
+      <ol>
+        <li>Choisis un titre clair.</li>
+        <li>Ajoute une description utile.</li>
+        <li>Ajoute une miniature adaptée.</li>
+        <li>Utilise une musique autorisée.</li>
+        <li>Vérifie la vidéo avant de la publier.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>✅ Ma checklist</h2>
+    <p>Coche les étapes que tu as terminées.</p>
+
+    <label><input type="checkbox" onchange="progress()"> Vidéo enregistrée</label><br>
+    <label><input type="checkbox" onchange="progress()"> Montage terminé</label><br>
+    <label><input type="checkbox" onchange="progress()"> Son vérifié</label><br>
+    <label><input type="checkbox" onchange="progress()"> Miniature créée</label><br>
+    <label><input type="checkbox" onchange="progress()"> Titre préparé</label><br>
+    <label><input type="checkbox" onchange="progress()"> Vidéo vérifiée</label><br><br>
+
+    <div class="progress"><div id="bar"></div></div>
+    <p id="count">0 / 6 étapes terminées</p>
+  </div>
+
+  <div class="card">
+    <h2>🎯 Idées de vidéos gaming</h2>
+    <p id="idea">Clique pour obtenir une idée de vidéo !</p>
+    <button onclick="newIdea()">Nouvelle idée 🔄</button>
+  </div>
+
+  <div class="card">
+    <h2>▶️ Ouvrir YouTube</h2>
+    <p>Retrouve des tutoriels pour améliorer tes montages.</p>
+    <button onclick="window.open('https://www.youtube.com/results?search_query=tutoriel+montage+gaming+capcut+mobile','_blank')">
+      Voir les tutoriels
+    </button>
+  </div>
+
+</main>
+
+<footer>
+  CREATOR BOOST 🎮<br>
+  Apprend, crée et progresse gratuitement !
+</footer>
+
+<script>
+function showLesson(id) {
+  const lesson = document.getElementById(id);
+  lesson.classList.toggle('active');
+}
+
+function progress() {
+  const checks = document.querySelectorAll(
+    'input[type="checkbox"]'
+  );
+  let done = 0;
+
+  checks.forEach(function(check) {
+    if (check.checked) done++;
+  });
+
+  document.getElementById('bar').style.width =
+    (done / checks.length * 100) + '%';
+
+  document.getElementById('count').textContent =
+    done + ' / ' + checks.length + ' étapes terminées';
+}
+
+const ideas = [
+  'Mes meilleurs moments sur Blood Strike',
+  '3 astuces pour mieux jouer',
+  'Mon meilleur clutch',
+  'Les erreurs que je fais en partie',
+  'Je teste une nouvelle arme',
+  'Mes meilleurs kills de la semaine',
+  'Un Short avec mes actions préférées'
+];
+
+function newIdea() {
+  const random = Math.floor(Math.random() * ideas.length);
+  document.getElementById('idea').textContent = ideas[random];
+}
+</script>
+
+</body>
+  </html>
